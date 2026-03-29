@@ -11,7 +11,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/auth/login?email=${email}&password=${password}`
+        `https://fitness-tracker-5nxn.onrender.com/auth/login?email=${email}&password=${password}`
       )
       localStorage.setItem('token', res.data.token)
       navigate('/dashboard')

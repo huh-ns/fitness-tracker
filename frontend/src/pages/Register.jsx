@@ -12,7 +12,7 @@ export default function Register() {
   const handleRegister = async () => {
     try {
       const res = await axios.post(
-        `http://127.0.0.1:8000/auth/register?username=${username}&email=${email}&password=${password}`
+        `https://fitness-tracker-5nxn.onrender.com/auth/register?username=${username}&email=${email}&password=${password}`
       )
       localStorage.setItem('token', res.data.token)
       navigate('/dashboard')

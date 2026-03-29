@@ -26,12 +26,12 @@ const [aiLoading, setAiLoading] = useState(false)
   }, [])
 
   const fetchHistory = async () => {
-    const res = await axios.get('http://127.0.0.1:8000/workouts/history', { headers })
+    const res = await axios.get('https://fitness-tracker-5nxn.onrender.com/workouts/history', { headers })
     setHistory(res.data)
   }
 
   const fetchPRs = async () => {
-    const res = await axios.get('http://127.0.0.1:8000/workouts/prs', { headers })
+    const res = await axios.get('https://fitness-tracker-5nxn.onrender.com/workouts/prs', { headers })
     setPrs(res.data)
   }
 
@@ -41,7 +41,7 @@ const [aiLoading, setAiLoading] = useState(false)
       return
     }
     const res = await axios.post(
-      `http://127.0.0.1:8000/workouts/log?exercise=${exercise}&sets=${sets}&reps=${reps}&weight=${weight}`,
+      `https://fitness-tracker-5nxn.onrender.com/workouts/log?exercise=${exercise}&sets=${sets}&reps=${reps}&weight=${weight}`,
       {}, { headers }
     )
     if (res.data.is_pr) setMessage(`🏆 New PR for ${exercise}!`)
@@ -59,7 +59,7 @@ const [aiLoading, setAiLoading] = useState(false)
   setAiLoading(true)
   setAiSuggestion('')
   try {
-    const res = await axios.get('http://127.0.0.1:8000/workouts/ai-suggestion', { headers })
+    const res = await axios.get('https://fitness-tracker-5nxn.onrender.com/workouts/ai-suggestion', { headers })
     setAiSuggestion(res.data.suggestion)
   } catch (err) {
     setAiSuggestion('Error getting suggestion. Please try again.')
